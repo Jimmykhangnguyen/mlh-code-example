@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Loader } from '@googlemaps/js-api-loader';
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import ConnectionCard from "./components/ConnectionCard.jsx";
 
 const Map = () => {
     const mapRef = React.useRef(null);
@@ -36,7 +37,7 @@ const Map = () => {
 
             // setup map
             const map = new Map(mapRef.current, mapOptions);
-
+            
             const infoWindow = new InfoWindow();
 
             const markers = [];
@@ -80,10 +81,11 @@ const Map = () => {
 
     return (
         <div>
-            <div className="flex justify-center flex-row pt-[10vh]">
-            <div className="w-[150vh] bg-[#FCAF3D] rounded-[20px] h-[84vh] p-[2.5vh] m-[2vh]">
-                <div className="w-[145vh] rounded-[20px] h-[80vh] mt-[-0.5vh]" ref={mapRef} />
-            </div>
+            <div className="flex justify-center flex-row pt-[3vh]">
+                <ConnectionCard />
+                <div className="w-[160vh] bg-[#FCAF3D] rounded-[20px] h-[94vh] p-[2.5vh] ">
+                    <div className="w-[155vh] rounded-[20px] h-[90vh] mt-[-0.5vh]" ref={mapRef} />
+                </div>
             </div>
         </div>
     )
