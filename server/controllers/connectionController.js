@@ -11,18 +11,18 @@ export const getAllConnections = async (req, res) => {
 };
 
 export const createConnection = async (req, res) => {
-    try {
-        const connection = await Connection.create(req.body);
-        res.status(201).json({ connection });
-    } catch (error) {
-        res.status(500).json({ msg: error })
-    }
+	try {
+		const connection = await ConnectionModel.create(req.body);
+		res.status(201).json({ connection });
+	} catch (error) {
+		res.status(500).json({ msg: error.message });
+	}
 };
 
 export const deleteConnection = async (req, res) => {
     try {
         const { id: connectionId } = req.params
-        const connection = await Connection.deleteOne({ _id: connectionId });
+        const connection = await ConnectionModel.deleteOne({ _id: connectionId });
         res.status(201).json({ connection });
     } catch (error) {
         res.status(500).json({ msg: error });

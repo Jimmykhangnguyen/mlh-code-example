@@ -1,11 +1,16 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import connectionRoute from "./routes/connectionRoute.js"
 
 dotenv.config()
 const app = express()
+
+app.use(express.json());
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 app.use('/connections', connectionRoute)
 
@@ -23,7 +28,7 @@ const connectDB = async () => {
 
 connectDB()
 
-const server = app.listen(
+app.listen(
     PORT,
     console.log(`Successfully connect to port ${PORT}`)
 )

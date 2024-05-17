@@ -12,6 +12,24 @@ const Map = () => {
     const [ connections, setConnections ] = useState([]);
 
     // TODO: fetch user data
+    useEffect(() => {
+        const fetchConnection = async () => {
+            const res = await fetch(
+                `http://localhost:3001/`,
+                {
+                    method: `GET`
+                }
+            )
+
+            const data = await res.json()
+
+            if (res.ok) {
+                setConnections(data.connections)
+            }
+        }
+        
+        fetchConnection();
+    }, [])
 
     // Loading in map
     useEffect(() => {
