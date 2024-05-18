@@ -1,8 +1,8 @@
-import express from "express"
+import express from "express";
 import { 
     createConnection,
-	getAllConnections,
-	deleteConnection,
+    getAllConnections,
+    deleteConnection,
 } from "../controllers/connectionController.js";
 
 const router = express.Router();

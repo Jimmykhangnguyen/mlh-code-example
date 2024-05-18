@@ -9,10 +9,11 @@ import connectionRoute from "./routes/connectionRoute.js"
 dotenv.config()
 const app = express()
 
+// Middleware
+app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
-app.use('/connections', connectionRoute)
+app.use('/', connectionRoute)
 
 const PORT = process.env.PORT || 8080
 
