@@ -8,7 +8,7 @@ const ConnectionSchema = new mongoose.Schema({
 	location: {
 		type: String,
 	},
-	occupation: {
+	phone: {
 		type: String,
 	},
 });
