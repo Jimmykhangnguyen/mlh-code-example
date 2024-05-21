@@ -1,14 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import BASE_URL from '@/../../constants.js'
 
-const AddConnectionForm = ({ isOpen, onClose, userId }) => {
+const AddConnectionForm = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
         name: '',
         location: '',
     })
-
-    const token = useSelector((state) => state.auth.token)
 
     const autoCompleteRef = useRef(null)
 
@@ -35,30 +31,16 @@ const AddConnectionForm = ({ isOpen, onClose, userId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        formData.author = userId
+
         try {
-            const res = await fetch(`${BASE_URL}/connections/`, {
+            const res = await fetch(`http://localhost:3001/`, {
                 method: 'POST',
                 headers: {
-                    Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             })
             const data = await res.json()
-            const connectionId = data.connection._id
-
-            // update a user's connectionIds list
-            const updateUser = await fetch(`${BASE_URL}/users/`, {
-                method: 'PATCH',
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    $push: { connectionIds: connectionId },
-                }),
-            })
 
             if (!res.ok) {
                 throw new Error('Network response was not ok')
@@ -70,11 +52,12 @@ const AddConnectionForm = ({ isOpen, onClose, userId }) => {
     }
     return (
         <div
-            className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center ${
+            className={`z-[1] fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center ${
                 isOpen ? '' : 'hidden'
             }`}
         >
             <div className="bg-white p-8 rounded shadow-md">
+                <h1 className='text-center font-bold text-[3vh] pb-[1vh]' >New Connection</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 text-[14px] gap-2">
                         <input

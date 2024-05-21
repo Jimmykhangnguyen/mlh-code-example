@@ -14,14 +14,6 @@ const ConnectionProfile = ({_id, name, location}) => {
         })
     }
 
-    const handleEditClick = () => {
-        setIsModalOpen(true)
-    }
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false)
-    }
-
     return (
         <div className="h-[15vh] w-[45vh] bg-white rounded-[20px] flex mt-[2vh]">
             <IoPersonCircleSharp className="ml-[2vh] text-[13vh]" />
@@ -36,12 +28,6 @@ const ConnectionProfile = ({_id, name, location}) => {
                 </div>
             </div>
             <div className="w-[8vh] rounded-[20px] flex flex-col items-center justify-around mr-[1vh]">
-                <button
-                    className="flex items-center justify-center font-azeret bg-[#FFB302] w-[5vh] text-[3.5vh] font-bold border h-[5vh] rounded-2xl border-solid border-[rgb(84,84,84)] hover:cursor-pointer hover:text-[white] hover:bg-[rgb(59,59,59)]"
-                    onClick={handleEditClick}
-                >
-                    <MdEdit />
-                </button>
                 <button
                     onClick={handleDelete}
                     className="flex items-center justify-center font-azeret bg-[#F85555] w-[5vh] text-[3.5vh] font-bold border h-[5vh] rounded-2xl border-solid border-[rgb(84,84,84)] hover:cursor-pointer hover:text-[white] hover:bg-[rgb(59,59,59)]"

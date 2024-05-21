@@ -5,14 +5,23 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { getGeocode, getLatLng } from "use-places-autocomplete";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import ConnectionCard from "./components/cards/ConnectionCard";
+import AddConnectionForm from "./components/forms/AddConnectionForm.jsx"
 
 const Map = () => {
     const mapRef = React.useRef(null);
 
     const [ connections, setConnections ] = useState([]);
+    const [ checkConnections, setCheckConnections ] = useState(true);
+
+    const checkFunc = () => {
+        console.log("Testing checkFunc")
+        setCheckConnections(!checkConnections);
+    };
 
     // TODO: fetch user data
     useEffect(() => {
+        let check = []
+
         const fetchConnection = async () => {
             const res = await fetch(
                 `http://localhost:3001/`,
@@ -22,8 +31,8 @@ const Map = () => {
             )
 
             const data = await res.json()
-            
-            console.log(data)
+
+            check = data.connections
 
             if (res.ok) {
                 setConnections(data.connections)
@@ -31,14 +40,14 @@ const Map = () => {
         }
         
         fetchConnection();
-    }, [])
+    }, [checkConnections])
 
     // Loading in map
     useEffect(() => {
 
         const initMap = async () => {
             const loader = new Loader({
-                apiKey: 'AIzaSyBUIvdKMKt7Hav5Ly79qwuTEZszxLw1X1I',
+                apiKey: 'AIzaSyCdmaXxrKqPvx9WK1h1xKY2KawBKOzeHP8',
                 version: "weekly",
             })
 
@@ -102,7 +111,7 @@ const Map = () => {
     return (
         <div>
             <div className="flex justify-center flex-row pt-[3vh]">
-                <ConnectionCard connections={connections}/>
+                <ConnectionCard connections={connections} checkFunc={checkFunc}/>
                 <div className="w-[160vh] bg-[#FCAF3D] rounded-[20px] h-[94vh] p-[2.5vh] ">
                     <div className="w-[155vh] rounded-[20px] h-[90vh] mt-[-0.5vh]" ref={mapRef} />
                 </div>
