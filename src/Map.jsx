@@ -12,11 +12,11 @@ const Map = () => {
     const [ connections, setConnections ] = useState([]);
     const [ checkConnections, setCheckConnections ] = useState(true);
 
+    // To refetch data after add or deletion
     const checkFunc = () => {
         setCheckConnections(!checkConnections);
     };
 
-    // TODO: fetch user data
     useEffect(() => {
         const fetchConnection = async () => {
             const res = await fetch(

@@ -14,13 +14,13 @@ const ConnectionProfile = ({_id, name, location, checkFunction}) => {
     }
 
     return (
-        <div className="h-[15vh] w-[45vh] bg-white rounded-[20px] flex mt-[2vh]">
+        <div className="w-[45vh] bg-white rounded-[20px] flex mt-[2vh]">
             <IoPersonCircleSharp className="ml-[2vh] text-[13vh]" />
             <div className="mt-[1vh] w-[43vh] ml-[2vh]">
                 <h2 className="font-bold text-left text-[3.5vh]">
                     {name}
                 </h2>
-                <div className="text-left text-[2.5vh]">
+                <div className="text-left text-[2.5vh] mb-[1vh]">
                     <p>
                         <b>Location:</b> {location}
                     </p>

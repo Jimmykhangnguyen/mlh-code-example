@@ -9,12 +9,12 @@ const ConnectionCard = ({ connections, checkFunction }) => {
     const [showAddForm, setShowAddForm] = useState(false)
 
     const handleCloseForm = () => {
-        setShowAddForm(false)
-        checkFunction()
+        setShowAddForm(false);
+        checkFunction();
     }
 
     return (
-        <div className="bg-[#FCAF58] rounded-[20px] w-[50vh] h-[94vh] m-[2vh] mt-[0vh] ml-[0vh] flex flex-col items-center overflow-auto overflow-x-hidden">
+        <div style={{ scrollbarGutter: 'stable',}} className="bg-[#FCAF58] rounded-[20px] w-[50vh] h-[94vh] m-[2vh] mt-[0vh] ml-[0vh] flex flex-col items-center overflow-auto overflow-x-hidden">
             <button
                 className="font-azeret bg-[#8DC363] w-[40vh] text-[large] font-bold border h-[6vh] rounded-[1vh] mt-[2vh] border-solid border-[rgb(84,84,84)] hover:cursor-pointer hover:text-[white] hover:bg-[rgb(59,59,59)]"
                 onClick={(e) => {
