@@ -3,15 +3,14 @@ import { MdEdit } from 'react-icons/md'
 import { FaTrashAlt } from 'react-icons/fa'
 import { IoPersonCircleSharp } from 'react-icons/io5'
 
-const ConnectionProfile = ({_id, name, location}) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-
+const ConnectionProfile = ({_id, name, location, checkFunction}) => {
 
     const handleDelete = async (e) => {
         const res = await fetch(`http://localhost:3001/` + _id, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
         })
+        checkFunction()
     }
 
     return (

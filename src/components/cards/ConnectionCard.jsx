@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import ConnectionProfile from "./ConnectionProfile";
 import AddConnectionForm from "../forms/AddConnectionForm.jsx";
 
-const ConnectionCard = ( connections, checkFunc ) => {
+const ConnectionCard = ({ connections, checkFunction }) => {
+
+    console.log(connections)
 
     const [showAddForm, setShowAddForm] = useState(false)
 
     const handleCloseForm = () => {
         setShowAddForm(false)
-        checkFunc()
+        checkFunction()
     }
 
     return (
@@ -25,12 +27,13 @@ const ConnectionCard = ( connections, checkFunc ) => {
                 isOpen={showAddForm}
                 onClose={handleCloseForm}
             />
-            {connections && connections.connections.length > 0 ? (
-                connections.connections.map((connection) => (
+            {connections && connections.length > 0 ? (
+                connections.map((connection) => (
                     <ConnectionProfile 
                     _id={connection._id}
                     name={connection.name} 
                     location={connection.location} 
+                    checkFunction={checkFunction}
                 />
                 ))
             ) : (
