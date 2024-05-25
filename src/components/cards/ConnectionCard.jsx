@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ConnectionProfile from "./ConnectionProfile";
 import AddConnectionForm from "../forms/AddConnectionForm.jsx";
 
 const ConnectionCard = ({ connections, checkFunction }) => {
-
-    console.log(connections)
 
     const [showAddForm, setShowAddForm] = useState(false)
 

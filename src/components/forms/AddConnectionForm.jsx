@@ -15,6 +15,11 @@ const AddConnectionForm = ({ isOpen, onClose }) => {
         setFormData({ ...formData, [name]: value })
     }
 
+    const handleClose = () => {
+        onClose()
+    }
+
+    // Autocompleting locations in the input
     useEffect(() => {
         autoCompleteRef.current = new window.google.maps.places.Autocomplete(
             inputRef.current
@@ -24,10 +29,6 @@ const AddConnectionForm = ({ isOpen, onClose }) => {
             setFormData({ ...formData, location: place.formatted_address })
         })
     }, [formData])
-
-    const handleClose = () => {
-        onClose()
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()

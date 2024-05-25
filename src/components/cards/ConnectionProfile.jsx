@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { MdEdit } from 'react-icons/md'
+import React from "react";
 import { FaTrashAlt } from 'react-icons/fa'
 import { IoPersonCircleSharp } from 'react-icons/io5'
 

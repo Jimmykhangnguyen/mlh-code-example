@@ -1,13 +1,17 @@
 # Connection Mapper
+
 ## Overview
 As a part of the MLH Fellowship Application, Connection Mapper is a small code snippet that utilizes the MERN (MongoDB, Express.js, React.js, Node.js) stack to map out connections and their respective locations onto an interactive map.
+
 ## Features
 1. Users can add and remove connections within their contact list.
 2. Connections are automatically added or removed from the map upon addition or removal from the contact list
+
 ## Technologies used
 - **Front-end**: JavaScript, React.js, Tailwind CSS
 - **Back-end**: MongoDB, Express.js, Node.js
 - **External APIs**: Google Maps APIs
+
 ## Quick Setup
 1. **Clone the repo from Github**
 ```bash
@@ -25,3 +29,6 @@ Within the mlh-code-example directory:
 ```sh
 npm start
 ```
+
+## API and database keys
+Due to this being a code example, all API keys and MongoDB URIs are exposed for the users' convenience
