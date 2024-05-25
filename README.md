@@ -1,7 +1,11 @@
 # Connection Mapper
 
 ## Overview
-As a part of the MLH Fellowship Application, Connection Mapper is a small code snippet that utilizes the MERN (MongoDB, Express.js, React.js, Node.js) stack to map out connections and their respective locations onto an interactive map.
+Connection Mapper is a small code snippet that utilises the MERN (MongoDB, Express.js, React.js, Node.js) stack to map out connections and their respective locations onto an interactive map. The aim of this application is to visualise users' relationships and help them keep track of friends and loved ones.
+
+The code snippet is a part of a bigger project I am working on which helps nurture human-to-human relationships by enabling people to better keep track of their circle of friends. Instead of placing emphasis on the number of connections like Facebook or Instagram, we place the quality of our users' relationships first.
+
+The link to the original project: [Relationship Management System](https://github.com/VyLanTran/RelationshipManagement)
 
 ## Features
 1. Users can add and remove connections within their contact list.
