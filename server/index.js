@@ -9,7 +9,7 @@ import connectionRoute from "./routes/connectionRoute.js"
 dotenv.config()
 const app = express()
 
-// Middleware
+// Middleware to parse JSON from frontend's request
 app.use(cors());
 app.use(express.json());
 
